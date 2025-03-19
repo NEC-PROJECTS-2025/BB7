@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liver Test</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='test.css')}}" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+       position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #4b4b1e;
+        color: #4b4b1e;
+        padding: 10px 0;
+        z-index: 1000;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #4b4b1e;
+      }
+
+      .content {
+        margin-top: 100px; /* Adjust based on navbar height */
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <img class="image" src="../static/Editorial-Liver_Story_16x9-removebg-preview(1).png" alt="" width="290px" />
+        <h3>Liver Disease Prediction</h3>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+
+          <li class="nav-item">
+            <a href="{{ url_for('test') }}" class="nav-link">Liver Test</a>
+          </li>
+          <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="content">
+      <h2 id="head">Liver Disease Prediction</h2>
+      <div class="container">
+        <div class="stroke-test-card">
+          <form action="{{ url_for('predict') }}" method="post">
+            <div class="form-grid">
+                <div class="form-group">
+                  <label for="age">Age</label>
+                  <input type="number" id="age" name="Age" placeholder="Enter age" required min="1" max="120" />
+                </div>
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <select id="gender" name="Gender" required>
+                    <option value="">Select</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="total_bilirubin">Total Bilirubin</label>
+                  <input type="number" id="total_bilirubin" name="Total_Bilirubin" placeholder="Enter value" required step="0.01" min="0.4" max="75.0" />
+                </div>
+                <div class="form-group">
+                  <label for="direct_bilirubin">Direct Bilirubin</label>
+                  <input type="number" id="direct_bilirubin" name="Direct_Bilirubin" placeholder="Enter value" required step="0.01" min="0.1" max="19.7" />
+                </div>
+                <div class="form-group">
+                  <label for="alkaline_phosphotase">Alkaline Phosphotase</label>
+                  <input type="number" id="alkaline_phosphotase" name="Alkaline_Phosphotase" placeholder="Enter value" required min="63" max="2110" />
+                </div>
+                <div class="form-group">
+                  <label for="alamine_aminotransferase">Alamine Aminotransferase</label>
+                  <input type="number" id="alamine_aminotransferase" name="Alamine_Aminotransferase" placeholder="Enter value" required min="10" max="2000" />
+                </div>
+                <div class="form-group">
+                  <label for="aspartate_aminotransferase">Aspartate Aminotransferase</label>
+                  <input type="number" id="aspartate_aminotransferase" name="Aspartate_Aminotransferase" placeholder="Enter value" required min="10" max="4929" />
+                </div>
+                <div class="form-group">
+                  <label for="total_proteins">Total Proteins</label>
+                  <input type="number" id="total_proteins" name="Total_Protiens" placeholder="Enter value" required step="0.01" min="2.7" max="9.6" />
+                </div>
+                <div class="form-group">
+                  <label for="albumin">Albumin</label>
+                  <input type="number" id="albumin" name="Albumin" placeholder="Enter value" required step="0.01" min="0.9" max="5.5" />
+                </div>
+                <div class="form-group">
+                  <label for="albumin_globulin_ratio">Albumin and Globulin Ratio</label>
+                  <input type="number" id="albumin_globulin_ratio" name="Albumin_and_Globulin_Ratio" placeholder="Enter value" required step="0.01" min="0.3" max="2.8" />
+                </div>
+            <button type="submit" class="btn">Test</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #4b4b1e;
+        color: white;
+        padding: 10px 0;
+        z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+        .nav-item {
+            margin-left: 20px;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 700px;
+            background: white;
+            padding: 30px;
+            margin: 100px auto 20px auto; /* Added margin-top to avoid overlap */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h2 {
+            color: #222;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #555;
+            font-size: 22px;
+            margin-top: 15px;
+        }
+        .details p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+          <img class="image" src="../static/Editorial-Liver_Story_16x9-removebg-preview(1).png" alt="" width="290px" />
+          <h3>Liver Disease Prediction</h3>
+          <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('test') }}" class="nav-link">Liver Test</a></li>
+            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+          </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="details">
+            <h3>Project Guide</h3>
+            <p><strong>K.V. Narasimha Reddy</strong><br>Asst. Prof, Dept of CSE</p>
+            <h3>Co-Guide</h3>
+            <p><strong>D. Venkata Reddy</strong><br>Asst. Prof, Dept of CSE</p>
+            <h3>Project Coordinator</h3>
+            <p><strong>Dr. Sireesha Moturi</strong><br>Assoc. Prof, Dept of CSE</p>
+            <h3>Team Members</h3>
+            <p>Satish Duggineni</p>
+            <p>Munaf Shaik</p>
+            <p>Anji Babu B</p>
+        </div>
+    </div>
+</body>
+</html>
